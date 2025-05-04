@@ -631,7 +631,7 @@ type ListCatalogItemsParams struct {
 	// Editing this in an attempt to patch the problem up
 	MarketplaceId string `json:"marketplaceIds"`
 	Identifier string `json:"identifiers"`
-	IdentifiersType string `json:"identifierstype"`
+	IdentifiersType string `json:"identifiersType"`
 
 	///////////////////////////////////////////////////////////////////////////////////
 
