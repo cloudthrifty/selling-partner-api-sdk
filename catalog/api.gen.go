@@ -228,7 +228,7 @@ func NewListCatalogCategoriesRequest(endpoint string, params *ListCatalogCategor
 		return nil, err
 	}
 
-	basePath := fmt.Sprintf("/catalog/v0/categories")
+	basePath := fmt.Sprintf("/catalog/2022-04-01/categories")
 	if basePath[0] == '/' {
 		basePath = basePath[1:]
 	}
@@ -303,7 +303,7 @@ func NewListCatalogItemsRequest(endpoint string, params *ListCatalogItemsParams)
 		return nil, err
 	}
 
-	basePath := fmt.Sprintf("/catalog/v0/items")
+	basePath := fmt.Sprintf("/catalog/2022-04-01/items")
 	if basePath[0] == '/' {
 		basePath = basePath[1:]
 	}
@@ -465,7 +465,7 @@ func NewGetCatalogItemRequest(endpoint string, asin string, params *GetCatalogIt
 		return nil, err
 	}
 
-	basePath := fmt.Sprintf("/catalog/v0/items/%s", pathParam0)
+	basePath := fmt.Sprintf("/catalog/2022-04-01/items/%s", pathParam0)
 	if basePath[0] == '/' {
 		basePath = basePath[1:]
 	}
