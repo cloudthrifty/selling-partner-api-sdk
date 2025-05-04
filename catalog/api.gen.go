@@ -315,129 +315,134 @@ func NewListCatalogItemsRequest(endpoint string, params *ListCatalogItemsParams)
 
 	queryValues := queryUrl.Query()
 
-	if queryFrag, err := runtime.StyleParam("form", true, "MarketplaceId", params.MarketplaceId); err != nil {
-		return nil, err
-	} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-		return nil, err
-	} else {
-		for k, v := range parsed {
-			for _, v2 := range v {
-				queryValues.Add(k, v2)
-			}
-		}
-	}
+	//*************** Bug fix on parameter names**************************************************************
+	queryValues.Add("marketplaceIds",params.MarketplaceId)
+	queryValues.Add("identifiers",params.Identifier)
+	queryValues.Add("identifiersType",params.IdentifiersType)
+	
+	// if queryFrag, err := runtime.StyleParam("form", true, "marketplaceIds", params.MarketplaceId); err != nil {
+	// 	return nil, err
+	// } else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+	// 	return nil, err
+	// } else {
+	// 	for k, v := range parsed {
+	// 		for _, v2 := range v {
+	// 			queryValues.Add(k, v2)
+	// 		}
+	// 	}
+	// }
 
-	if params.Query != nil {
+	// if params.Query != nil {
 
-		if queryFrag, err := runtime.StyleParam("form", true, "Query", *params.Query); err != nil {
-			return nil, err
-		} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-			return nil, err
-		} else {
-			for k, v := range parsed {
-				for _, v2 := range v {
-					queryValues.Add(k, v2)
-				}
-			}
-		}
+	// 	if queryFrag, err := runtime.StyleParam("form", true, "Query", *params.Query); err != nil {
+	// 		return nil, err
+	// 	} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+	// 		return nil, err
+	// 	} else {
+	// 		for k, v := range parsed {
+	// 			for _, v2 := range v {
+	// 				queryValues.Add(k, v2)
+	// 			}
+	// 		}
+	// 	}
 
-	}
+	// }
 
-	if params.QueryContextId != nil {
+	// if params.QueryContextId != nil {
 
-		if queryFrag, err := runtime.StyleParam("form", true, "QueryContextId", *params.QueryContextId); err != nil {
-			return nil, err
-		} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-			return nil, err
-		} else {
-			for k, v := range parsed {
-				for _, v2 := range v {
-					queryValues.Add(k, v2)
-				}
-			}
-		}
+	// 	if queryFrag, err := runtime.StyleParam("form", true, "QueryContextId", *params.QueryContextId); err != nil {
+	// 		return nil, err
+	// 	} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+	// 		return nil, err
+	// 	} else {
+	// 		for k, v := range parsed {
+	// 			for _, v2 := range v {
+	// 				queryValues.Add(k, v2)
+	// 			}
+	// 		}
+	// 	}
 
-	}
+	// }
 
-	if params.SellerSKU != nil {
+	// if params.SellerSKU != nil {
 
-		if queryFrag, err := runtime.StyleParam("form", true, "SellerSKU", *params.SellerSKU); err != nil {
-			return nil, err
-		} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-			return nil, err
-		} else {
-			for k, v := range parsed {
-				for _, v2 := range v {
-					queryValues.Add(k, v2)
-				}
-			}
-		}
+	// 	if queryFrag, err := runtime.StyleParam("form", true, "SellerSKU", *params.SellerSKU); err != nil {
+	// 		return nil, err
+	// 	} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+	// 		return nil, err
+	// 	} else {
+	// 		for k, v := range parsed {
+	// 			for _, v2 := range v {
+	// 				queryValues.Add(k, v2)
+	// 			}
+	// 		}
+	// 	}
 
-	}
+	// }
 
-	if params.UPC != nil {
+	// if params.UPC != nil {
 
-		if queryFrag, err := runtime.StyleParam("form", true, "UPC", *params.UPC); err != nil {
-			return nil, err
-		} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-			return nil, err
-		} else {
-			for k, v := range parsed {
-				for _, v2 := range v {
-					queryValues.Add(k, v2)
-				}
-			}
-		}
+	// 	if queryFrag, err := runtime.StyleParam("form", true, "UPC", *params.UPC); err != nil {
+	// 		return nil, err
+	// 	} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+	// 		return nil, err
+	// 	} else {
+	// 		for k, v := range parsed {
+	// 			for _, v2 := range v {
+	// 				queryValues.Add(k, v2)
+	// 			}
+	// 		}
+	// 	}
 
-	}
+	// }
 
-	if params.EAN != nil {
+	// if params.EAN != nil {
 
-		if queryFrag, err := runtime.StyleParam("form", true, "EAN", *params.EAN); err != nil {
-			return nil, err
-		} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-			return nil, err
-		} else {
-			for k, v := range parsed {
-				for _, v2 := range v {
-					queryValues.Add(k, v2)
-				}
-			}
-		}
+	// 	if queryFrag, err := runtime.StyleParam("form", true, "EAN", *params.EAN); err != nil {
+	// 		return nil, err
+	// 	} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+	// 		return nil, err
+	// 	} else {
+	// 		for k, v := range parsed {
+	// 			for _, v2 := range v {
+	// 				queryValues.Add(k, v2)
+	// 			}
+	// 		}
+	// 	}
 
-	}
+	// }
 
-	if params.ISBN != nil {
+	// if params.ISBN != nil {
 
-		if queryFrag, err := runtime.StyleParam("form", true, "ISBN", *params.ISBN); err != nil {
-			return nil, err
-		} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-			return nil, err
-		} else {
-			for k, v := range parsed {
-				for _, v2 := range v {
-					queryValues.Add(k, v2)
-				}
-			}
-		}
+	// 	if queryFrag, err := runtime.StyleParam("form", true, "ISBN", *params.ISBN); err != nil {
+	// 		return nil, err
+	// 	} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+	// 		return nil, err
+	// 	} else {
+	// 		for k, v := range parsed {
+	// 			for _, v2 := range v {
+	// 				queryValues.Add(k, v2)
+	// 			}
+	// 		}
+	// 	}
 
-	}
+	// }
 
-	if params.JAN != nil {
+	// if params.JAN != nil {
 
-		if queryFrag, err := runtime.StyleParam("form", true, "JAN", *params.JAN); err != nil {
-			return nil, err
-		} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-			return nil, err
-		} else {
-			for k, v := range parsed {
-				for _, v2 := range v {
-					queryValues.Add(k, v2)
-				}
-			}
-		}
+	// 	if queryFrag, err := runtime.StyleParam("form", true, "JAN", *params.JAN); err != nil {
+	// 		return nil, err
+	// 	} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+	// 		return nil, err
+	// 	} else {
+	// 		for k, v := range parsed {
+	// 			for _, v2 := range v {
+	// 				queryValues.Add(k, v2)
+	// 			}
+	// 		}
+	// 	}
 
-	}
+	// }
 
 	queryUrl.RawQuery = queryValues.Encode()
 
