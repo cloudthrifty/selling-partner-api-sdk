@@ -626,8 +626,14 @@ type ListCatalogCategoriesParams struct {
 // ListCatalogItemsParams defines parameters for ListCatalogItems.
 type ListCatalogItemsParams struct {
 
+	//********************** BUG FIX******************************************************
 	// A marketplace identifier. Specifies the marketplace for which items are returned.
-	MarketplaceId string `json:"MarketplaceId"`
+	// Editing this in an attempt to patch the problem up
+	MarketplaceId string `json:"marketplaceIds"`
+	Identifier string `json:"identifiers"`
+	IdentifiersType string `json:"identifierstype"`
+
+	///////////////////////////////////////////////////////////////////////////////////
 
 	// Keyword(s) to use to search for items in the catalog. Example: 'harry potter books'.
 	Query *string `json:"Query,omitempty"`
