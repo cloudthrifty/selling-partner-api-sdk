@@ -1,14 +1,17 @@
-# Amazon's Selling Partner API (SP-API) Golang SDK
+# Fork Of Amazon's Selling Partner API (SP-API) Golang SDK
 
 [![Go Reference](https://pkg.go.dev/badge/gopkg.me/selling-partner-api-sdk.svg)](https://pkg.go.dev/gopkg.me/selling-partner-api-sdk)
 
 ## Installation
 
 ~~~~
-go get -u github.com/amzapi/selling-partner-api-sdk
+go get -u github.com/ct-ldeakm/selling-partner-api-sdk
+
 ~~~~
 
 ## Progress
+
+* [X] the documentation below may not follow with the changes in this forked repo
                     
 * [X] authorization ([authorization-api-model](https://github.com/amzn/selling-partner-api-models/blob/main/models/authorization-api-model/authorization.json) [DOC](https://github.com/amzn/selling-partner-api-docs/blob/main/references/authorization-api/authorization.md))
 * [X] catalog ([catalog-items-api-model](https://github.com/amzn/selling-partner-api-docs/blob/main/references/catalog-items-api/catalogItemsV0.md) [DOC](https://github.com/amzn/selling-partner-api-docs/blob/main/references/catalog-items-api/catalogItemsV0.md))
