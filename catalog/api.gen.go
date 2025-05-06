@@ -620,12 +620,12 @@ func (c *ClientWithResponses) ListCatalogCategoriesWithResponse(ctx context.Cont
 }
 
 // ListCatalogItemsWithResponse request returning *ListCatalogItemsResponse
-func (c *ClientWithResponses) ListCatalogItemsWithResponse(ctx context.Context, params *ListCatalogItemsParams) (*ListCatalogItemsResp, error) {
+func (c *ClientWithResponses) ListCatalogItemsWithResponse(ctx context.Context, params *ListCatalogItemsParams) (map[string]interface{}, error) {
 	rsp, err := c.ListCatalogItems(ctx, params)
 	if err != nil {
 		return nil, err
 	}
-	return ParseListCatalogItemsResp(rsp)
+	return ParseListCatalogItemsResp2(rsp)
 }
 
 // GetCatalogItemWithResponse request returning *GetCatalogItemResponse
@@ -665,7 +665,7 @@ func ParseListCatalogCategoriesResp(rsp *http.Response) (*ListCatalogCategoriesR
 }
 
 // ParseListCatalogItemResp2 is a mod to return a generic set of data.
-func ParseListCatalogItemResp2(rsp *http.Response)(map[string]interface{},error){
+func ParseListCatalogItemsResp2(rsp *http.Response)(map[string]interface{},error){
 	bodyBytes, err := io.ReadAll(rsp.Body)
 	defer rsp.Body.Close()
 	if err !=nil{
