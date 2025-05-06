@@ -7,6 +7,7 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
+	"io"
 	"io/ioutil"
 	"net/http"
 	"net/url"
@@ -661,6 +662,24 @@ func ParseListCatalogCategoriesResp(rsp *http.Response) (*ListCatalogCategoriesR
 	}
 
 	return response, err
+}
+
+// ParseListCatalogItemResp2 is a mod to return a generic set of data.
+func ParseListCatalogItemResp2(rsp *http.Response)(map[string]interface{},error){
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer rsp.Body.Close()
+	if err !=nil{
+		return nil, err	
+	}
+
+    data := make(map[string]interface{})
+
+	err = json.Unmarshal(bodyBytes,data)
+	if err != nil {
+		return nil,err
+	}
+	return data, nil
+
 }
 
 // ParseListCatalogItemsResp parses an HTTP response from a ListCatalogItemsWithResponse call
